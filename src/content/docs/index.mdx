@@ -1,36 +1,32 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
+title: 建中班聯會法規參考
+description: 互動式法規系統，法規內容以班聯會網站公布為準
 template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  tagline: 互動式法規系統，法規內容以班聯會網站公布為準
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/imgbin_law-and-justice-icon-law-icon-scale-icon-png.png
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: 從憲章開始查看
+      link: /%E6%86%B2%E7%AB%A0/%E5%BB%BA%E4%B8%AD%E7%8F%AD%E8%81%AF%E6%9C%83%E6%86%B2%E7%AB%A0
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
-      variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+{/* // import { Card, CardGrid } from '@astrojs/starlight/components'; */}
+import { Card, CardGrid } from '../../starlight/components';
 
-## Next steps
+## 介紹
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
-</CardGrid>
+<Card title="法規資料來源" icon="external">
+	臺北市立建國高級中學班聯會 [**法規系統**](https://ckhssc.wordpress.com/%e6%b3%95%e8%a6%8f%e7%b3%bb%e7%b5%b1/)
+</Card>
+<Card title="網站性質" icon="warning">
+	目前此網站僅從班聯會會網擷取法規，未必能即時更新，法規內容以班聯會會網公布為準
+</Card>
+<Card title="反應管道" icon="comment">
+	會網 [**申訴窗口**](https://ckhssc.wordpress.com/%e7%94%b3%e8%a8%b4%e7%aa%97%e5%8f%a3/)\
+	本網站作者 [**jx06_t**](https://www.instagram.com/jx06_t/)
+</Card>
+<Card title="專案倉庫" icon="github">
+	...
+</Card>
