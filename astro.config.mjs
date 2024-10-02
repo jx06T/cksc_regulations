@@ -1,14 +1,33 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import remarkBreaks from 'remark-breaks'; 
+import remarkBreaks from 'remark-breaks';
+import { visit } from 'unist-util-visit';
+
+
+const site = 'https://cksc-laws.vercel.app/';
+//@ts-ignore
+const externalAnchorPlugin = () => tree => {
+	visit(tree, 'link', (node) => {
+		if (/^(https?):\/\/[^\s/$.?#].[^\s]*$/i.test(node.url) && !node.url.includes(site)) {
+			node.data ??= {};
+			node.data.hProperties ??= {};
+			node.data.hProperties.target = '_blank';
+			node.data.hProperties.rel = 'noopener noreferrer'; 
+		}
+	});
+}
+
 
 // https://astro.build/config
 export default defineConfig({
 	markdown: {
-		remarkPlugins: [remarkBreaks],
+		remarkPlugins: [
+			remarkBreaks,
+			externalAnchorPlugin,
+		],
 	},
-	site: 'http://localhost:4321/',
+	site: 'https://cksc-laws.vercel.app/',
 	integrations: [
 		starlight({
 			components: {
