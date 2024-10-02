@@ -182,7 +182,8 @@
     --sl-text-h4: var(--sl-text-2xl);
   }
   .content-panel h4 {
-    margin-left: 1rem !important;
+    /* margin-left: 2.2rem !important; */
+    margin-left: -0.1rem !important;
   }
   .content-panel li {
     margin-left: 0rem !important;
@@ -200,7 +201,8 @@
   font-size: var(--sl-text-0xl);
   font-weight: 500;
   color: var(--sl-color-gray-2);
-  margin-left: 0.5rem;
+  /* margin-left: 1rem; */
+  margin-left: 0rem;
   margin-top: 1rem !important;
   margin-bottom: 1.6rem !important;
 }
@@ -210,4 +212,28 @@
     --sl-content-pad-x: 1.5rem;
     --sl-mobile-toc-height: 0rem;
   }
+}
+
+.jx06 {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.jx06 label {
+  margin-top: -38px;
+  margin-right: 2px;
+}
+
+.jx06 h2 {
+  margin-left: 4px;
+}
+
+.jx06 label svg:first-of-type {
+  margin-top: 8px;
+}
+
+.jx06 label svg:nth-of-type(2) {
+  margin-top: 8px;
 }

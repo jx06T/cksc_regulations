@@ -40,7 +40,6 @@ export default defineConfig({
 			logo: {
 				src: './src/assets/imgbin_law-firm-family-law-legal-aid-bankruptcy-png.png',
 			},
-			// favicon: './src/assets/imgbin_law-firm-family-law-legal-aid-bankruptcy-png.png',
 			favicon: '/imgbin_law-firm-family-law-legal-aid-bankruptcy-png.png',
 			social: {
 				instagram: "https://www.instagram.com/cksc79th/",
