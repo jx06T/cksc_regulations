@@ -66,6 +66,7 @@
   --sl-text-base: 1.1rem; /* 16px */
   --sl-text-lg: 1.2rem; /* 18px */
   --sl-text-xl: 1.2rem; /* 20px */
+  --sl-text-s0xl: 1rem; /* 24px */
   --sl-text-0xl: 1.2rem; /* 24px */
   --sl-text-2xl: 1.3rem; /* 24px */
   --sl-text-3xl: 1.4rem; /* 29px */
@@ -180,21 +181,28 @@
     --sl-text-h3: var(--sl-text-3xl);
     --sl-text-h4: var(--sl-text-2xl);
   }
-  .content-panel p {
-    font-size: var(--sl-text-0xl);
+  .content-panel h4 {
+    margin-left: 1rem !important;
   }
   .content-panel li {
-    font-size: var(--sl-text-0xl);
-    /* line-height: 2.2rem; */
-    /* margin-left: -0rem; */
+    margin-left: 0rem !important;
   }
-  .content-panel h4 {
-    font-size: var(--sl-text-0xl);
-    font-weight: 500;
-    margin-left: 1rem;
-    margin-top: 1rem !important;
-    margin-bottom: 1.6rem !important;
-  }
+}
+
+.content-panel p {
+  font-size: var(--sl-text-0xl);
+}
+.content-panel li {
+  font-size: var(--sl-text-0xl);
+  margin-left: -0.5rem;
+}
+.content-panel h4 {
+  font-size: var(--sl-text-0xl);
+  font-weight: 500;
+  color: var(--sl-color-gray-2);
+  margin-left: 0.5rem;
+  margin-top: 1rem !important;
+  margin-bottom: 1.6rem !important;
 }
 
 @media (min-width: 72rem) {

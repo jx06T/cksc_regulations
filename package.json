@@ -1,10 +1,10 @@
 {
-  "name": "",
+  "name": "law",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "dev": "astro dev --host",
+    "start": "astro dev --host",
     "build": "astro build",
     "build0": "astro check && astro build",
     "preview": "astro preview",
