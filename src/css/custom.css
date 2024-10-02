@@ -197,6 +197,11 @@
   font-size: var(--sl-text-0xl);
   margin-left: -0.5rem;
 }
+.content-panel h5 {
+  font-weight: 500;
+  line-height: 2rem;
+}
+
 .content-panel h4 {
   font-size: var(--sl-text-0xl);
   font-weight: 500;
