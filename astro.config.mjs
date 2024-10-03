@@ -9,18 +9,18 @@ const site = 'https://cksc-laws.vercel.app/';
 //@ts-ignore
 const externalAnchorPlugin = () => tree => {
 	visit(tree, 'link', (node) => {
-		if (/^(https?):\/\/[^\s/$.?#].[^\s]*$/i.test(node.url) && !node.url.includes(site)) {
+		if (/^(https?):\/\/[^\s/$.?#].[^\s]*$/i.test(node.url) && (!node.url.includes(site) || site.includes('edit'))) {
 			node.data ??= {};
 			node.data.hProperties ??= {};
 			node.data.hProperties.target = '_blank';
-			node.data.hProperties.rel = 'noopener noreferrer'; 
+			node.data.hProperties.rel = 'noopener noreferrer';
 		}
 	});
 }
 
-
 // https://astro.build/config
 export default defineConfig({
+	// output: 'server',
 	markdown: {
 		remarkPlugins: [
 			remarkBreaks,
@@ -30,8 +30,12 @@ export default defineConfig({
 	site: 'https://cksc-laws.vercel.app/',
 	integrations: [
 		starlight({
+			editLink: {
+				baseUrl: 'https://github.com/jx06T/cksc_regulations/tree/master',
+			},
 			components: {
 				SocialIcons: './src/starlight/components/SocialIcons.astro',
+				EditLink:'./src/starlight/components/EditLink.astro'
 			},
 			title: '建中班聯會法規',
 			customCss: [
@@ -49,9 +53,6 @@ export default defineConfig({
 			sidebar: [
 				{
 					label: '憲章',
-					// items: [
-					// 	{ label: '憲章', slug: '憲章/建中班聯會憲章' },
-					// ],
 					autogenerate: { directory: '憲章' },
 				},
 				{
@@ -73,6 +74,13 @@ export default defineConfig({
 				{
 					label: '命令',
 					autogenerate: { directory: '命令' },
+				},
+				{
+					label: '其他文件',
+					autogenerate: { directory: '其他文件' },
+					// items: [
+					// 	// { label: '編輯說明0', slug: '行政部門/學生代表選舉暨職權行使條例' },
+					// ],
 				},
 			],
 		}),
