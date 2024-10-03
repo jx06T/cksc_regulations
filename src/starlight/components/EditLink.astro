@@ -23,12 +23,29 @@ const { editUrl } = Astro.props;
 				</a>
 				<a href={editUrl} class="sl-flex" target="_blank">
 					<Icon name="pencil" size="1.2em" />
-					{/* {Astro.locals.t('page.editLink')} */}
 					前往編輯
 				</a>
 			</div>
 		</div>
 </div>
+
+<script is:inline>
+	const btn =document.querySelector("#ddddjx")
+	const pop =document.querySelector(".poppp")
+	
+	btn?.addEventListener("click",()=>{
+		pop?.classList.toggle("show")
+	})
+	
+	document.addEventListener("click",(e)=>{
+		console.log(e.target)
+		//@ts-ignore
+		if (e.target !== pop&& e.target.parentNode !== pop && e.target !== btn) {
+			pop?.classList.remove("show")
+		}
+	})
+
+</script>
 
 <style>
 	.poppp{
@@ -50,13 +67,17 @@ const { editUrl } = Astro.props;
 		margin-top: 4px;
 	}
 
-	.bbbbbppp:focus-within .poppp {
+	.poppp.show {
+		display: block;
+	}
+
+	/* .bbbbbppp:focus-within .poppp {
 		display: block;
 	}
 
 	.popppP:hover .poppp{
 		display: block;
-	}
+	} */
 
 	.popppP{
 		position: fixed;
