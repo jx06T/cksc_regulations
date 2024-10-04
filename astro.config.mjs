@@ -38,6 +38,7 @@ export default defineConfig({
 				EditLink:'./src/starlight/components/EditLink.astro'
 			},
 			title: '建中班聯會法規',
+			defaultLocale: 'zh',
 			customCss: [
 				'./src/css/custom.css',
 			],
