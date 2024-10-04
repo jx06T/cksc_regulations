@@ -35,7 +35,7 @@ export default defineConfig({
 			},
 			components: {
 				SocialIcons: './src/starlight/components/SocialIcons.astro',
-				EditLink:'./src/starlight/components/EditLink.astro'
+				EditLink: './src/starlight/components/EditLink.astro'
 			},
 			title: '建中班聯會法規',
 			defaultLocale: 'zh',
@@ -50,7 +50,12 @@ export default defineConfig({
 				instagram: "https://www.instagram.com/cksc79th/",
 				linkedin: "https://ckhssc.wordpress.com/"
 			},
-
+			locales: {
+				root: {
+					label: '繁體中文',
+					lang: 'zh-Hant-TW', 
+				},
+			},
 			sidebar: [
 				{
 					label: '憲章',
