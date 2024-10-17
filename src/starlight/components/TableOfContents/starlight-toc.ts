@@ -4,7 +4,6 @@ export class StarlightTOC extends HTMLElement {
 	private _current = this.querySelector<HTMLAnchorElement>('a[aria-current="true"]');
 	private minH = parseInt(this.dataset.minH || '2', 10);
 	private maxH = parseInt(this.dataset.maxH || '3', 10);
-	private js = this.dataset.js || 'dd';
 
 	protected set current(link: HTMLAnchorElement) {
 		if (link === this._current) return;
@@ -24,7 +23,6 @@ export class StarlightTOC extends HTMLElement {
 	private init = (): void => {
 		/** All the links in the table of contents. */
 		const links = [...this.querySelectorAll('a')];
-		console.log(links,"!~!")
 
 		/** Test if an element is a table-of-contents heading. */
 		const isHeading = (el: Element): el is HTMLHeadingElement => {
@@ -68,9 +66,9 @@ export class StarlightTOC extends HTMLElement {
 				if (!heading) continue;
 				const link = links.find((link) => link.hash === '#' + encodeURIComponent(heading.id));
 
-				window.location.hash = link ? '#'+(link.href || '').split('#')[1] : ''; // 更新網址列的哈希
-				// console.log(this.js,"=",link!.textContent)
-				// toc
+				// window.location.hash = link ? '#'+(link.href || '').split('#')[1] : ''; // 更新網址列的哈希
+				const newHash = link ? '#'+(link.href || '').split('#')[1] : '';
+				history.pushState(null, '', newHash); // 更新網址列的哈希，但不會造成頁面滾動
 
 				if (link) {
 					this.current = link;
@@ -106,9 +104,11 @@ export class StarlightTOC extends HTMLElement {
 		// `<summary>` only exists in mobile ToC, so will fall back to 0 in large viewport component.
 		const mobileTocHeight = this.querySelector('summary')?.getBoundingClientRect().height || 0;
 		/** Start intersections at nav height + 2rem padding. */
-		const top = navBarHeight + mobileTocHeight + 32;
+		// const top = navBarHeight + mobileTocHeight + 32;
+		const top = navBarHeight + mobileTocHeight + 60;
 		/** End intersections `53px` later. This is slightly more than the maximum `margin-top` in Markdown content. */
-		const bottom = top + 53;
+		// const bottom = top + 53;
+		const bottom = top + 90;
 		const height = document.documentElement.clientHeight;
 		return `-${top}px 0% ${bottom - height}px`;
 	}
