@@ -67,7 +67,7 @@ export class StarlightTOC extends HTMLElement {
 				const link = links.find((link) => link.hash === '#' + encodeURIComponent(heading.id));
 
 				// window.location.hash = link ? '#'+(link.href || '').split('#')[1] : ''; // 更新網址列的哈希
-				const newHash = link ? '#'+(link.href || '').split('#')[1] : '';
+				const newHash = link ? '#' + (link.href || '').split('#')[1] : '';
 				history.pushState(null, '', newHash); // 更新網址列的哈希，但不會造成頁面滾動
 
 				if (link) {
@@ -85,21 +85,29 @@ export class StarlightTOC extends HTMLElement {
 
 		let observer: IntersectionObserver | undefined;
 		const observe = () => {
+			console.log(observer)
 			if (observer) return;
-			observer = new IntersectionObserver(setCurrent, { rootMargin: this.getRootMargin()});
+			observer = new IntersectionObserver(setCurrent, { rootMargin: this.getRootMargin() });
 
 			toObserve.forEach((h) => observer!.observe(h));
 		};
 		observe();
 
 
-		// let timeout: NodeJS.Timeout;
-		// window.addEventListener('resize', () => {
-		// 	// Disable intersection observer while window is resizing.
-		// 	if (observer) observer.disconnect();
-		// 	clearTimeout(timeout);
-		// 	timeout = setTimeout(() => this.onIdle(observe), 200);
-		// });
+		let timeout: NodeJS.Timeout;
+		window.addEventListener('resize', () => {
+			// Disable intersection observer while window is resizing.
+
+			if (observer) {
+				observer.disconnect();
+				observer = undefined
+			}
+
+			clearTimeout(timeout);
+			timeout = setTimeout(() => {
+				this.onIdle(observe)
+			}, 400);
+		});
 	};
 
 	private getRootMargin(): `-${number}px 0% ${number}px` {
@@ -115,4 +123,4 @@ export class StarlightTOC extends HTMLElement {
 	}
 }
 
-customElements.define('starlight-toc', StarlightTOC);
+customElements.define('starlight-tocc', StarlightTOC);
