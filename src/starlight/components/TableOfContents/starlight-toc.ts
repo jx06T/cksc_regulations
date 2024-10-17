@@ -80,7 +80,8 @@ export class StarlightTOC extends HTMLElement {
 		// Observe elements with an `id` (most likely headings) and their siblings.
 		// Also observe direct children of `.content` to include elements before
 		// the first heading.
-		const toObserve = document.querySelectorAll('main [id], main [id] ~ *, main .content > *');
+		// const toObserve = document.querySelectorAll('main [id], main [id] ~ *, main .content > *');
+		const toObserve = document.querySelectorAll('main [id]');
 
 		let observer: IntersectionObserver | undefined;
 		const observe = () => {
