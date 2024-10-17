@@ -90,6 +90,7 @@ export class StarlightTOC extends HTMLElement {
 		};
 		observe();
 
+		
 		let timeout: NodeJS.Timeout;
 		window.addEventListener('resize', () => {
 			// Disable intersection observer while window is resizing.
