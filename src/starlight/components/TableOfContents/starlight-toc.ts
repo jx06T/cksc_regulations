@@ -4,6 +4,7 @@ export class StarlightTOC extends HTMLElement {
 	private _current = this.querySelector<HTMLAnchorElement>('a[aria-current="true"]');
 	private minH = parseInt(this.dataset.minH || '2', 10);
 	private maxH = parseInt(this.dataset.maxH || '3', 10);
+	private js = this.dataset.js || 'dd';
 
 	protected set current(link: HTMLAnchorElement) {
 		if (link === this._current) return;
@@ -23,6 +24,7 @@ export class StarlightTOC extends HTMLElement {
 	private init = (): void => {
 		/** All the links in the table of contents. */
 		const links = [...this.querySelectorAll('a')];
+		console.log(links,"!~!")
 
 		/** Test if an element is a table-of-contents heading. */
 		const isHeading = (el: Element): el is HTMLHeadingElement => {
@@ -65,6 +67,11 @@ export class StarlightTOC extends HTMLElement {
 				const heading = getElementHeading(target);
 				if (!heading) continue;
 				const link = links.find((link) => link.hash === '#' + encodeURIComponent(heading.id));
+
+				window.location.hash = link ? '#'+(link.href || '').split('#')[1] : ''; // 更新網址列的哈希
+				// console.log(this.js,"=",link!.textContent)
+				// toc
+
 				if (link) {
 					this.current = link;
 					break;

@@ -35,7 +35,9 @@ export default defineConfig({
 			},
 			components: {
 				SocialIcons: './src/starlight/components/SocialIcons.astro',
-				EditLink: './src/starlight/components/EditLink.astro'
+				EditLink: './src/starlight/components/EditLink.astro',
+				// TableOfContents: './src/starlight/components/TableOfContents/TableOfContentsList.astro',
+				MobileTableOfContents:'./src/starlight/components/MobileTableOfContents.astro'
 			},
 			title: '建中班聯會法規',
 			defaultLocale: 'zh',
