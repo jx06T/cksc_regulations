@@ -85,19 +85,20 @@ export class StarlightTOC extends HTMLElement {
 		let observer: IntersectionObserver | undefined;
 		const observe = () => {
 			if (observer) return;
-			observer = new IntersectionObserver(setCurrent, { rootMargin: this.getRootMargin(),threshold:0.1});
+			observer = new IntersectionObserver(setCurrent, { rootMargin: this.getRootMargin()});
+
 			toObserve.forEach((h) => observer!.observe(h));
 		};
 		observe();
 
-		
-		let timeout: NodeJS.Timeout;
-		window.addEventListener('resize', () => {
-			// Disable intersection observer while window is resizing.
-			if (observer) observer.disconnect();
-			clearTimeout(timeout);
-			timeout = setTimeout(() => this.onIdle(observe), 200);
-		});
+
+		// let timeout: NodeJS.Timeout;
+		// window.addEventListener('resize', () => {
+		// 	// Disable intersection observer while window is resizing.
+		// 	if (observer) observer.disconnect();
+		// 	clearTimeout(timeout);
+		// 	timeout = setTimeout(() => this.onIdle(observe), 200);
+		// });
 	};
 
 	private getRootMargin(): `-${number}px 0% ${number}px` {
