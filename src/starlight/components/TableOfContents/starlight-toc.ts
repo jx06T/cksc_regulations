@@ -106,11 +106,9 @@ export class StarlightTOC extends HTMLElement {
 		// `<summary>` only exists in mobile ToC, so will fall back to 0 in large viewport component.
 		const mobileTocHeight = this.querySelector('summary')?.getBoundingClientRect().height || 0;
 		/** Start intersections at nav height + 2rem padding. */
-		// const top = navBarHeight + mobileTocHeight + 32;
-		const top = navBarHeight + mobileTocHeight + 60;
+		const top = navBarHeight + mobileTocHeight + 32;
 		/** End intersections `53px` later. This is slightly more than the maximum `margin-top` in Markdown content. */
-		// const bottom = top + 53;
-		const bottom = top + 90;
+		const bottom = top + 53;
 		const height = document.documentElement.clientHeight;
 		return `-${top}px 0% ${bottom - height}px`;
 	}
